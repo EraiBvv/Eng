@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <title>Formularios</title>
+      <style type="text/css"></style>
+      <meta charset="utf-8">
+</head>
+<body>
+<header>
+      <h1 align="center">Venta en linea</h1>
+</header>
+<form method="post" action="" enctype="text/plain">  
+<fieldset align="center">
+      <legend>Informacion general</legend>
+
+    <label for="nombre">Nombre</label>
+      <input type="text" name="nombre" id="nombre" maxlength="25" placeholder="Nombre" title="Nombre" required>
+
+      <label for="apellidop">Apellido materno</label>
+      <input type="text" name="apellidop" id="apellidop" maxlength="25" placeholder="Apellido paterno" title="Apellido paterno" required>
+
+      <label for="apellidom">Apellido materno</label>
+      <input type="text" name="apellidom" id="apellidom" maxlength="25" placeholder="Apellido materno" title="Apellido materno"required> <br><br>
+
+
+      <label for="usuario">Nombre del usuario</label>
+      <input type="text" name="usuario" id="usuario" maxlength="25" placeholder="Nombre del usuario" title="Nombre del usuario">
+
+      <label for="pass">Contraseña:</label>
+      <input type="password" name="pass" id="pass" maxlength="25" size="15" placeholder="Password" title="Password" required>
+   
+    <label for="Fechan">Fecha de nacimiento:</label>
+    <input type="date" name="Fechan" id="Fechan" required>
+   
+</fieldset>
+
+
+<fieldset align="center">
+<legend>Datos de facturación</legend>
+
+    <label for="pais">País</label>
+      <select name="pais" id="pais" multiple size="3">
+            <option>México</option>
+            <option>EUA</option>
+            <option>Canada</option>
+            <option>Francia</option>
+            <option>Inglaterra</option>
+      </select>
+
+      <label for="ciudad">Ciudad</label>
+      <select name="ciudad" id="ciudad" multiple size="3">
+            <option>Matehuala</option>
+            <option>Ciudad Valles</option>
+            <option>San Luis Potosí</option>
+            <option>Soledad de Graciano Sanchéz</option>
+            <option>Pozos</option>
+      </select>
+
+    <label for="calle">Calle</label>
+    <input type="calle" name="calle" id="calle" maxlength="25" size="15" placeholder="Calle" title="Calle" required><br><br>
+
+    <label for="casa">Numero de casa</label>
+    <input type="casa" name="casa" id="casa" maxlength="25" size="15" placeholder="Numero exterior" title="Numero exterior" required>
+
+    <label for="colonia">Colonia</label>
+    <input type="colonia" name="colonia" id="colonia" maxlength="25" size="15" placeholder="Colonia" title="Colonia"required>
+
+      <label for="correo">E-mail</label>
+    <input type="email" name="correo" id="correo" maxlength="25" size="15" placeholder="E-mail" title="E-mail"required><br><br>
+
+    <label for="rfc">R.F.C</label>
+    <input type="rfc" name="rfc" id="rfc" maxlength="25" size="15" placeholder="R.F.C" title="R.F.C"required>
+
+    <label for="cp">C.P</label>
+    <input type="cp" name="cp" id="cp" maxlength="25" size="15" placeholder="C.P" title="C.P"required>
+
+    <input type="submit" name="envio" id="envio" value="Enviar">
+      <input type="reset" name="borrar" value="Restablecer" id="borrar">
+
+</form>
+</body>
+</html>
