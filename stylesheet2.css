@@ -1,0 +1,159 @@
+.estadoactual {
+  margin: 0;
+  padding: 0.3rem;
+  background-color: #eee;
+}
+
+.estadoactual > h1,
+.contenido-estadoactual {
+  margin: 0.5rem;
+  padding: 0.3rem;
+  font-size: 1.2rem;
+}
+
+.contenido-estadoactual {
+  background: right/contain content-box border-box no-repeat white;
+}
+
+.contenido-estadoactual > h2,
+.contenido-estadoactual > p {
+  margin: 0.2rem;
+  font-size: 1rem;
+}
+
+
+
+.visionfuturo {
+  margin: 0;
+  padding: 0.3rem;
+  background-color: #eee;
+}
+
+.visionfuturo > h1,
+.contenido-vision {
+  margin: 0.5rem;
+  padding: 0.3rem;
+  font-size: 1.2rem;
+}
+
+.contenido-vision {
+  background: right/contain content-box border-box no-repeat white;
+}
+
+.contenido-vision > h2,
+.contenido-vision > p {
+  margin: 0.2rem;
+  font-size: 1rem;
+}
+
+
+
+
+.titulo-estadoactual {
+  position: relative;
+  text-align: center;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.titulo-visionfuturo {
+  position: relative;
+  text-align: center;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.estado-t {
+  font-size: 3em;
+  z-index: 1;
+}
+
+
+.vision-t {
+  font-size: 3em;
+  z-index: 1;
+}
+
+
+
+
+.imagen-fondo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("FondoT.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: blur(1px);
+  z-index: -1;
+}
+
+
+
+.chart {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+  position: relative;
+  width: 900px;
+  height: 500px;
+  border: 1px solid #333;
+}
+
+.bar {
+  position: relative;
+  width: 50px;
+  background-color: #3498db;
+  transition: height 0.5s;
+  cursor: pointer;
+}
+
+.bar:hover .tooltip {
+  display: block;
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.axis {
+  position: absolute;
+  left: 50px;
+  bottom: 50px;
+  width: 500px;
+  height: 1px;
+  background-color: #333;
+}
+
+.axis-label {
+  position: absolute;
+  bottom: 40px;
+  color: #333;
+  font-size: 14px;
+}
+
+.bar-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 14px;
+  color: #333;
+}
