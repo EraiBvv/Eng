@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de RFC</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #resultado {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generador de RFC</h1>
+    <form id="rfcForm">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required>
+        <label for="apellidoPaterno">Apellido Paterno:</label>
+        <input type="text" id="apellidoPaterno" required>
+        <label for="apellidoMaterno">Apellido Materno:</label>
+        <input type="text" id="apellidoMaterno" required>
+        <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+        <select id="dia" required></select>
+        <select id="mes" required></select>
+        <input type="text" id="anio" placeholder="Año" required>
+        <button type="submit">Generar RFC</button>
+    </form>
+    <div id="resultado"></div>
+    <script src="script3.js"></script>
+</body>
+</html>
