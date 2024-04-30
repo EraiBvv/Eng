@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Obtener totales del formulario</title>
+    <link rel="stylesheet" type="text/css" href="Pa3P4.css.css">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href="https://fonts.googleapis.com/css?family=Charmonman" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery-ui-1.8.17.custom.min.js"></script>
+	<script type="text/javascript" src="jspdf.js"></script>
+	<script type="text/javascript" src="jspdf.plugin.addimage.js"></script>
+	<script type="text/javascript" src="jspdf.plugin.standard_fonts_metrics.js"></script>
+	<script type="text/javascript" src="jspdf.plugin.split_text_to_size.js"></script>
+	<script type="text/javascript" src="jspdf.plugin.from_html.js"></script>	
+</head>
+<script>
+var total;
+function califica() {
+    var total = 0;
+    //Evalua cada pregunta
+    for (var x = 1; x <= 5; x++) {
+        var nom = "r" + x;
+        var resul = document.getElementsByName(nom);
+        for (var i = 0; i < resul.length; i++) {
+            if (resul[i].checked) {
+                total += parseInt(resul[i].value);
+                break; // Salimos del bucle for si encontramos una respuesta seleccionada
+            }
+        }
+    }
+    document.getElementById("total").innerHTML = "Puntos obtenidos: " + total + " Puntos";
+    if (total == 100)
+        document.getElementById("comentario").innerHTML = "EXCELENTE!!!";
+    else if (total >= 50)
+        document.getElementById("comentario").innerHTML = "Regular!!";
+    else
+        document.getElementById("comentario").innerHTML = "Estudia un poco más";
+}
+
+
+ 
+function generar(){
+
+//Crear un objeto o instancia jsPDF
+var doc = new jsPDF();
+
+//Definir el tamaño de la letra
+doc.setFontSize(40);
+//Color del texto
+doc.setTextColor(9,7,121);
+doc.text(40, 20, "Criterios para los puntajes");
+doc.setTextColor(17, 122, 209); //Color en formato RGB
+doc.setFontSize(30);
+doc.text(50, 35, "Resultados del test"); //Ubicación, Texto
+doc.setTextColor(0,0,0);
+doc.setFontSize(10);
+doc.text(20, 50, "100 puntos. Muy bien. \r Todas tus respuestas son correctas");
+doc.text(20, 70, "50 puntos o más. Regular. \r Obtuviste la mitad o mas de la mitad de las preguntas correctas");
+doc.text(20, 90, "0 puntos. \r Todas tus respuestas son incorrectas");
+
+//doc.addImage(imgData, 'JPEG', 10, 40, 180, 180);
+
+var string = doc.output('datauristring');
+
+$('iframe').attr('src', string);
+
+}
+</script>
+
+<body>
+    <div id="contiene">
+	<h1>Test sobre componentes de una computadora</h1>
+	<h2>Responde las siguientes preguntas</h2>
+<div>
+	<form>
+	<ul>
+
+		<li>¿Cuál de estos componentes es el encargado de procesar la información en una PC?</li>
+		<input type="radio" name="r1" id="r1" value="20"/>Procesador<br/>
+		<input type="radio" name="r1" id="r1" value="0"/>Tarjeta de video<br/>
+		<input type="radio" name="r1" id="r1" value="0"/>Memoria RAM<br/>
+		<input type="radio" name="r1" id="r1" value="0"/>Disco duro<br/>
+		
+		<li>¿Qué componente de la computadora almacena de manera permanente la información, incluso cuando la computadora está apagada?</li>
+		<input type="radio" name="r2" id="r2" value="20"/>Disco duro<br/>
+		<input type="radio" name="r2" id="r2" value="0"/>Memoria RAM<br/>
+		<input type="radio" name="r2" id="r2" value="0"/>Procesador<br/>
+		<input type="radio" name="r2" id="r2" value="0"/>Tarjeta de video<br/>
+
+		<li>¿Cuál de las siguientes opciones describe mejor a un disco duro SSD?</li>
+		<input type="radio" name="r3" id="r3" value="0"/>Más económico pero más lento que un disco duro tradicional<br/>
+		<input type="radio" name="r3" id="r3" value="0"/>Ofrece mayor capacidad de almacenamiento que un disco duro tradicional<br/>
+		<input type="radio" name="r3" id="r3" value="20"/>Proporciona tiempos de carga más rápidos y mejora el rendimiento en juegos<br/>
+		<input type="radio" name="r3" id="r3" value="0"/>Se utiliza principalmente para almacenar archivos multimedia<br/>
+
+        <li>¿Qué componente es esencial para garantizar una experiencia de juego fluida y sin retrasos?</li>
+		<input type="radio" name="r4" id="r4" value="0"/>Tarjeta de sonido<br/>
+		<input type="radio" name="r4" id="r4" value="0"/>Ratón gaming<br/>
+		<input type="radio" name="r4" id="r4" value="0"/>Teclado mecanico<br/>
+		<input type="radio" name="r4" id="r4" value="20"/>Conexión a internet de alta velocidad<br/>
+
+		<li>¿Cuál de las siguientes opciones describe mejor a una tarjeta gráfica dedicada?</li>
+		<input type="radio" name="r5" id="r5" value="0"/>Integrada en la placa base<br/>
+		<input type="radio" name="r5" id="r5" value="20"/>Diseñada específicamente para renderizar gráficos<br/>
+		<input type="radio" name="r5" id="r5" value="0"/>Se encarga del procesamiento de audio en los juegos<br/>
+		<input type="radio" name="r5" id="r5" value="0"/>Aumenta la velocidad de carga de los juegos<br/>
+
+	</ul>
+</form>
+</div>
+<input type="button" value="Calificar" onclick="califica()">
+<p></p>
+<p id="total">   </p>
+<p id="comentario">   </p>
+<input type="button" onclick="generar()" value="Ver resultados"/> <br/>
+<iframe frameborder="0" width="600" height="500"></iframe>
+</div>
+</body>
+</html>
